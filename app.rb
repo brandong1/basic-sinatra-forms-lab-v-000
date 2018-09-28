@@ -2,13 +2,17 @@ require 'sinatra/base'
 
 class App < Sinatra::Base
   get '/newteam' do
-    <% @new_team.each do |team| %>
-    <h2><%= team %></h2>
-<% end %>
     erb :newteam
   end
 
   post  '/team' do
+    @team_name = params[:name]
+    @coach = params[:coach]
+    @pg = params[:pg]
+    @sg = params[:sg]
+    @pf = params[:pf]
+    @sf = params[:sf]
+    @c = params[:c]
     erb :team
   end
 
